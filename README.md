@@ -13,3 +13,4 @@ change the following lines if conda isnt recognised
 
 Run `conda env create -f SOML.yml` at root folder.
 
+hi 
