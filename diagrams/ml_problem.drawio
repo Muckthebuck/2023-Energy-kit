@@ -1,0 +1,74 @@
+<mxfile host="app.diagrams.net" modified="2023-05-15T08:34:00.899Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36" etag="kKjXUIKki89w_AW2USZO" version="21.3.0" type="device">
+  <diagram name="Page-1" id="H1PGqT8XWE3a4cPU0BGd">
+    <mxGraphModel dx="1486" dy="672" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ZlJy2w6jFcB0dyE7aQjH-1" value="Temp predictive model" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#D5E8D4;" vertex="1" parent="1">
+          <mxGeometry x="440" y="280" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ZlJy2w6jFcB0dyE7aQjH-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="ZlJy2w6jFcB0dyE7aQjH-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="660" y="530.0689655172414" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZlJy2w6jFcB0dyE7aQjH-2" value="Load generative model" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#D5E8D4;" vertex="1" parent="1">
+          <mxGeometry x="440" y="490" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ZlJy2w6jFcB0dyE7aQjH-3" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1.013;exitY=0.215;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="ZlJy2w6jFcB0dyE7aQjH-9" target="ZlJy2w6jFcB0dyE7aQjH-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="360" y="339.9999999999999" as="sourcePoint" />
+            <mxPoint x="660" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZlJy2w6jFcB0dyE7aQjH-4" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="520" y="340" as="sourcePoint" />
+            <mxPoint x="660" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZlJy2w6jFcB0dyE7aQjH-5" value="next 24 hours Temp" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="530" y="310" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZlJy2w6jFcB0dyE7aQjH-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="ZlJy2w6jFcB0dyE7aQjH-8">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="660" y="430.0689655172414" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZlJy2w6jFcB0dyE7aQjH-8" value="Insolation predictive model" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#D5E8D4;" vertex="1" parent="1">
+          <mxGeometry x="440" y="390" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ZlJy2w6jFcB0dyE7aQjH-9" value="Batch generator (Sliding Window Generator)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#A9C4EB;" vertex="1" parent="1">
+          <mxGeometry x="290" y="280" width="70" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="ZlJy2w6jFcB0dyE7aQjH-10" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;exitX=1;exitY=0.75;exitDx=0;exitDy=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="360" y="429.65999999999985" as="sourcePoint" />
+            <mxPoint x="440" y="429.65999999999997" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZlJy2w6jFcB0dyE7aQjH-11" value="Data cleaning and pre-processing" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFE599;" vertex="1" parent="1">
+          <mxGeometry x="160" y="280" width="80" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="ZlJy2w6jFcB0dyE7aQjH-12" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="ZlJy2w6jFcB0dyE7aQjH-11" target="ZlJy2w6jFcB0dyE7aQjH-9">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="240" y="390" as="sourcePoint" />
+            <mxPoint x="290" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZlJy2w6jFcB0dyE7aQjH-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ZlJy2w6jFcB0dyE7aQjH-13" target="ZlJy2w6jFcB0dyE7aQjH-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZlJy2w6jFcB0dyE7aQjH-13" value="past time dependent load data" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E1D5E7;" vertex="1" parent="1">
+          <mxGeometry x="290" y="490" width="70" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ZlJy2w6jFcB0dyE7aQjH-17" value="next 24 hours solar insolation" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="530" y="400" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZlJy2w6jFcB0dyE7aQjH-18" value="24 hour Load data" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="530" y="500" width="110" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
