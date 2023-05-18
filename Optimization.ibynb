@@ -1,0 +1,195 @@
+# Import required packages
+import pyomo.environ as pyo
+from pyomo.opt import SolverFactory
+import numpy as np
+from pyomo.core.base import (ConcreteModel,Set,Var,Objective,Constraint,
+                             Param, NonNegativeReals,PositiveReals, Reals)
+
+#### PYOMO MODEL ###
+
+# Using pyomo syntax:
+# Create an "empty" model object:
+m = ConcreteModel()
+
+### INPUTS ###
+
+# Indices for each timestep, i.e., i=1,2,3 (i=0 is the initial condition)
+m.TS = Set(initialize=[i+1 for i in range(48)])
+
+# Time step
+m.dt = 0.5 
+
+# Tarriff
+m.Cost = Param(m.TS, initialize=0.25)
+
+# Load values 
+load_values = [0.5, 0.7, 0.9, 1.2, 1.6, 2.2, 2.8, 3.5, 4.1, 4.5, 4.8, 5.0, 5.2, 5.3, 5.3, 5.2, 5.1, 4.9, 4.6, 4.3, 4.0, 3.6, 3.2, 2.8, 2.4, 2.1, 1.9, 1.6, 1.5, 1.3, 1.2, 1.1, 1.0, 0.9, 0.9, 0.8, 0.8, 0.8, 0.8, 0.9, 1.0, 1.1, 1.3, 1.5, 1.7, 2.0, 2.3, 2.7]
+m.P_Load =  Param(m.TS,initialize={i: load_values[i-1] for i in m.TS})  
+
+# Outside temp in degress celcius
+T_out = np.array([0, 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 14, 15, 15, 15, 15, 15, 14, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 3, 2, 1, 0, 0, 0, 0, 0, 1, 2, 4, 5, 6, 7, 8, 9, 7])
+
+# Insolation (kW/m2)
+Ins_PV= [0.08268836, 0.23010326, 0.45966051, 0.62549152, 0.69281278, 0.63751184, 0.45732203, 0.19923285, 0.00300349, 0.07630457, 0.34699489, 0.5656485, 0.6595823, 0.61246875, 0.43736189, 0.17494461, 0.00805649, 0.12255792, 0.37928969, 0.58992426, 0.65575977, 0.60492027, 0.43216308, 0.14969566, 0.00827609, 0.14570636, 0.39706567, 0.60250382, 0.67144645, 0.60228197, 0.41640169, 0.17288119, 0.00878695, 0.1276099, 0.39607229, 0.57689847, 0.65494526, 0.61133121, 0.43119792, 0.17463183, 0.0029884, 0.07498502, 0.33582013, 0.53854753, 0.64090535, 0.61068207, 0.4559425, 0.22245506]
+
+# Area of panels
+Area = 50 # m2
+
+# Panel efficency 
+eta_PV=0.18 # 18% defined as PV_max (kW)/[Area (m2)*1 (kW/m2)]
+
+# Heat pump max output
+EHP_heat_max = 3 # kWth is the maximum heat output
+
+# Battery max charge/discharge rate in kw
+BESS_max=5 
+
+# Battery minimum SOC 
+SoC_min=0
+
+# Battery maximum SOC 
+SoC_max=13.5 # kWh
+
+# Battery-specific given parameters (round trip efficiency of 90%)
+eta_ch= 0.95 # charging efficiency
+eta_dis= 0.95 # discharging efficiency
+BESS_losses= 0 # Battery self-consumption losses (typically very small values, assumed here to be zero for simplicity)
+
+# Building C/R:
+Cb = 23.16 #kWh/K This is building's material thermal capacitance, which reflects its thermal inertia and therefore its ability 
+# to absorb, store and release heat.
+Rb= 8.38 #K/kW This represents the building's material thermal resistance which reflects its ability to resist heat flow
+
+# Absorbed solar radiation which depends on the building structure. For buildings with double glazed windows, typical values
+# for the Solar Heat Gain Coefficient (SHGC) are in the range of 0.42 - 0.55. However, in this example we assume it to be zero.
+SHGC = 0
+
+# Heat from humans in building (metaboloc gain)
+MG = 0
+
+# The internal (metabolic) heat gains (kW) is:
+heat_gains = 0.12 # kW/occupant
+Int_Heat_Gains_Data = 0.12*2 # heat gain for each occupant, where in this example the building has 2 occupants 
+Occupancy = np.ones(48) # stores the information about whether occupants are at home (1) or not (0)
+
+### PV MODEL ###
+
+# Forecasted solar PV generation (PV_f, kW) at time t can be modelled as a function of the insolation (Ins_PV), 
+# installed capacity (depending on the available area) and efficiency of the solar panels (eta_PV):
+
+                                            # PV_f(t)= eta_PV*Ins_PV(t)*Area
+
+# The solar radiation data depends on the location of the building and inclination of the PV panels.
+# We can also assume that solar PV output can be curtailed. In fact, there may be instances in which, because of 
+# limits on power export to the grid along with low demand and battery storage reaching its full capacity, the only option
+# would be to curtail any excess solar PV generation.
+
+# Parameters
+m.PV_f=Param(m.TS,initialize={i: eta_PV*Area*Ins_PV[i-1] for i in m.TS}) # PV forecasted power output: eta_PV*Ins_PV(t)*Area 
+
+# Decision variables
+m.PV_gen = Var(m.TS,initialize=0,domain=NonNegativeReals)  # Actual power output of the PV resulting from the optimization model
+m.PV_curt = Var(m.TS,initialize=0,domain=NonNegativeReals)  # PV curtailment resulting from the optimization model
+
+# Constraint to define the relationship between PV's actual power output and its curtailment
+def PV_power_rule(model,i):
+    return model.PV_gen[i]  == model.PV_f[i] - model.PV_curt[i]   # actual production = forecasted production-curtailment
+m.con_PV = Constraint(m.TS, rule=PV_power_rule) 
+
+### EHP MODEL ###
+
+# Assuming that COP(T_out) is a linear function (slope->m=4) of the outdoor temperature which, based on the forecasts at the analysed time
+# snapshots, will be:
+COP_T = 0.25* T_out + 1
+
+# Parameters
+m.COP = Param(m.TS,initialize={i: COP_T[i-1] for i in m.TS})
+
+# Decision variables
+# EHP electrical power input (kW) 
+m.ehp_E_input = Var(m.TS,initialize=0,domain=NonNegativeReals)
+
+# EHP heat power output (kW) 
+m.ehp_H_output = Var(m.TS,initialize=0,domain=NonNegativeReals)
+
+# Constraints
+def EHP_rule(model,i):
+    return model.ehp_H_output[i]  == model.ehp_E_input[i]*m.COP[i]   
+m.con_EHP = Constraint(m.TS, rule=EHP_rule)
+
+def EHP_size(model,i):
+    return model.ehp_H_output[i]<=EHP_heat_max
+m.size_EHP = Constraint(m.TS, rule=EHP_size)
+
+### BESS MODEL ###
+    
+# Battery variables
+def BESS_ch_dis_rule(model,i):
+    return (0,BESS_max)
+
+def SoC_rule(model,i):
+    return (SoC_min,SoC_max)
+
+# Battery charging (consuming)
+m.BESS_ch = Var(m.TS,initialize=0,bounds=BESS_ch_dis_rule) 
+
+# Battery discharging (generating)
+m.BESS_dis = Var(m.TS,initialize=0,bounds=BESS_ch_dis_rule) # if the battery is "generating" (discharging)
+
+# Battery net injection
+m.BESS_net = Var(m.TS,initialize=0,domain=Reals)
+m.SoC = Var(m.TS,initialize=0,bounds=SoC_rule)
+
+def BESS_net_inj_rule(model,i):
+    return model.BESS_net[i]==model.BESS_dis[i]-model.BESS_ch[i]
+m.BESS_injection_con = Constraint(m.TS,rule=BESS_net_inj_rule)
+
+def BESS_rule(model,i):
+    if i==1: # SoC at the start of the time horizon is equal to the SoC at the end
+        i0=model.TS[-1]
+    else:
+        i0=i-1
+    return model.SoC[i]-model.SoC[i0] == ((eta_ch*model.BESS_ch[i0])-(model.BESS_dis[i0]/eta_dis)-BESS_losses)*model.dt
+
+m.BESS_oper = Constraint(m.TS, rule=BESS_rule)
+
+### BUILDING MODEL ###
+
+Int = [i*Int_Heat_Gains_Data for i in Occupancy] 
+
+
+m.TS_aux = Set(initialize=[i+1 for i in range(49)]) # auxiliary time set for temperature modelling
+# Parameters
+m.Temp_Out = Param(m.TS, initialize={i: T_out[i-1] for i in m.TS}) #C # prediction of outdoor temperature
+m.Sol = Param(m.TS, initialize={i: SHGC*Ins_PV[i-1] for i in m.TS}) # kWh solar gain, that is the heat increase of a structure resulting from 
+m.Int = Param(m.TS, initialize={i: MG*Occupancy[i-1] for i in m.TS}) # heat coming from the presence of occupants in the building (metabolic gain)
+
+# Variables
+# Inside temperature of the building
+m.temp = Var(m.TS_aux, initialize=21)
+# Heat delivered to the building for space heating (kWh)
+m.h_sh = Var(m.TS, initialize=0, domain=NonNegativeReals)
+# Alpha is the ventilation variable which depends on the exchange between the outside and inside of the building and affects
+# the internal and solar gains.In this example we consider a variation of ventilation factor (in p.u.) that can range 
+# between 0 and 1 to avoid infeasibilities. 
+m.alpha = Var(m.TS,initialize=0,bounds=(0,1))
+
+# To accommodate the occupant preferences to keep temperature at 21°C (at t=2) we also define:
+m.temp_pref = Constraint(rule=lambda m: m.temp[2] == 21)
+
+# The following constraint models the temperature evolution depending on the heat transfers and building characteristics.
+m.building_system = Constraint(m.TS, rule=lambda m, i: m.temp[i+1] == m.temp[i]+
+                          (m.h_sh[i] + (1-m.alpha[i])*(m.Int[i]+m.Sol[i])-
+                           (m.temp[i]-m.Temp_Out[i])*m.dt*(1/Rb))*(1/Cb))
+
+### OBJECTIVE FUNCTION ###
+
+# Define the objective function (minimize the total cost)
+m.objective = pyo.Objective(expr=sum(m.Cost[i]*(m.P_Load[i]-m.PV_gen[i]+m.BESS_net[i]+m.ehp_E_input[i]) for i in m.TS))
+
+# USE MODEL 
+solver = pyo.SolverFactory('ipopt')
+results = solver.solve(m)
+
+# Results
+print(f"Total cost: {pyo.value(m.objective):.2f}")
