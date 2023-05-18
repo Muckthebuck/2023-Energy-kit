@@ -25,18 +25,18 @@ class ml_model:
 
     def predict(self, t, data_batches: online_batches):
         # Call predict method on the loaded model
-        temp_X, temp_y, temp_scalar, solar_X, solar_y, solar_scalar, load_X, load_y, load_scalar = data_batches.get_online_training_data()
-        temp_hat = self._predict(self.temp_model, t,temp_X, temp_y,self.austin_N, temp_scalar)
-        solar_hat = self._predict(self.solar_model, t,solar_X, solar_y,self.austin_N, solar_scalar)
+        temp_X, temp_y, temp_scalar, solar_X, solar_y, solar_scalar, load_X, load_y, load_scalar = data_batches.get_online_training_data(t)
+        temp_hat = self._predict(self.temp_model, temp_X, temp_y,self.austin_N, temp_scalar)
+        solar_hat = self._predict(self.solar_model, solar_X, solar_y,self.austin_N, solar_scalar)
         load_hat = 0
         # load_hat = self._predict(self.load_model, t,load_X, load_y,self.load_N, load_scalar)
         # need to divide solar by 1000 to conver to K(units)
         return temp_hat,solar_hat/1000,load_hat
     
-    def _predict(self,model, t, X_test, y_test, N, scalar):
-        x = X_test[t].reshape(-1,self.T,N)  # a "new" input is available
+    def _predict(self,model, X_test, y_test, N, scalar):
+        x = X_test.reshape(-1,self.T,N)  # a "new" input is available
         y_hat = model.predict_on_batch(x) # predict on the "new" input
         # averaged = np.mean(y_hat[:,3:6,:], axis=1)
-        y = y_test[t].reshape(1,-1,1)   # a "new" label is available
+        y = y_test.reshape(1,-1,1)   # a "new" label is available
         model.train_on_batch(x, y)  # runs a single gradient update 
         return scalar.inverse_transform(y_hat)
