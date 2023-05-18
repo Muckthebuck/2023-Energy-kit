@@ -28,7 +28,8 @@ class ml_model:
         temp_X, temp_y, temp_scalar, solar_X, solar_y, solar_scalar, load_X, load_y, load_scalar = data_batches.get_online_training_data()
         temp_hat = self._predict(self.temp_model, t,temp_X, temp_y,self.austin_N, temp_scalar)
         solar_hat = self._predict(self.solar_model, t,solar_X, solar_y,self.austin_N, solar_scalar)
-        load_hat = self._predict(self.load_model, t,load_X, load_y,self.load_N, load_scalar)
+        load_hat = 0
+        # load_hat = self._predict(self.load_model, t,load_X, load_y,self.load_N, load_scalar)
         # need to divide solar by 1000 to conver to K(units)
         return temp_hat,solar_hat/1000,load_hat
     
