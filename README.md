@@ -13,5 +13,20 @@ change the following lines if conda isnt recognised
 
 Run `conda env create -f SOML.yaml` at root folder.
 
-everytime you run 
-you need to `conda activate SOML`
+## File structure
+
+### directories
+/data: has source and cleaned data
+/alpg-master: code used to generate synthetic load data
+/diagrams: some of the graphs and diagrams used in reports
+/graphs: some of the graphs generated during exploration process
+/saved_model: saved trained ml models
+
+### jupyter notebook
+
+#### Optimisation 
+#### ML training and exploration
+
+#### 
+
+
