@@ -3,6 +3,7 @@ from online_batches import online_batches
 import pandas as pd
 import numpy as np
 
+
 class ml_model:
     
     def __init__(self, data_batches) -> None:
@@ -57,6 +58,6 @@ class ml_model:
             self.solar_avg = avg_df
         elif(which=='temp'):
             self.temp_avg = avg_df
-        dff_avg = avg_df.iloc[i]
-        predicted = dff_avg.mean()
-        return predicted
+        dff_avg = avg_df.iloc[i:i+self.pred_T]
+        predicted = dff_avg.mean(axis=1)
+        return predicted.values
