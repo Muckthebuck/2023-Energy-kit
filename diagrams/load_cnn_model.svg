@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.4.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="export" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1050 196" style="enable-background:new 0 0 1050 196;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#000000;stroke-miterlimit:10;}
+	.st1{stroke:#000000;stroke-miterlimit:10;}
+	.st2{font-family:'ArialMT';}
+	.st3{font-size:10px;}
+	.st4{fill:#EEEEEE;}
+	.st5{font-size:11px;}
+	.st6{fill:none;stroke:#333333;}
+	.st7{fill:#555555;}
+	.st8{fill:#FFFFFF;}
+	.st9{font-size:9px;}
+	.st10{fill:#335588;}
+	.st11{fill:#702921;}
+	.st12{fill:#335533;}
+	.st13{fill:#6C4F47;}
+</style>
+<g id="clusters">
+</g>
+<g id="edge-paths">
+	<path class="st0" d="M48.5,97.9h1.7c1.7,0,5,0,11.6,0s16.6,0,26.6,0s19.9,0,26.6,0s10,0,11.6,0h1.7"/>
+	<path class="st0" d=""/>
+	<path class="st1" d="M122.8,94.9l6,3l-6,3l2.4-3L122.8,94.9z"/>
+	<path id="edge-input" class="st1" d="M128.2,97.9"/>
+	<path class="st0" d="M203.2,97.9h1.7c1.7,0,5,0,8.3,0s6.7,0,8.3,0h1.7"/>
+	<path class="st0" d=""/>
+	<path class="st1" d="M217.8,94.9l6,3l-6,3l2.4-3L217.8,94.9z"/>
+	<path id="edge-conv1d_input" class="st1" d="M223.2,97.9"/>
+	<path class="st0" d="M362.9,97.9h1.7c1.7,0,5,0,8.3,0s6.7,0,8.3,0h1.7"/>
+	<path class="st0" d=""/>
+	<path class="st1" d="M377.5,94.9l6,3l-6,3l2.4-3L377.5,94.9z"/>
+	<path id="edge-conv1d" class="st1" d="M382.9,97.9"/>
+	<path class="st0" d="M471,97.9h1.7c1.7,0,5,0,8.3,0s6.7,0,8.3,0h1.7"/>
+	<path class="st0" d=""/>
+	<path class="st1" d="M485.6,94.9l6,3l-6,3l2.4-3L485.6,94.9z"/>
+	<path id="edge-conv1d_1" class="st1" d="M491,97.9"/>
+	<path class="st0" d="M579.1,97.9h1.7c1.7,0,5,0,8.3,0s6.7,0,8.3,0h1.7"/>
+	<path class="st0" d=""/>
+	<path class="st1" d="M593.7,94.9l6,3l-6,3l2.4-3L593.7,94.9z"/>
+	<path id="edge-conv1d_2" class="st1" d="M599.1,97.9"/>
+	<path class="st0" d="M684.2,97.9h1.7c1.7,0,5,0,8.3,0s6.7,0,8.3,0h1.7"/>
+	<path class="st0" d=""/>
+	<path class="st1" d="M698.8,94.9l6,3l-6,3l2.4-3L698.8,94.9z"/>
+	<path id="edge-max_pooling1d" class="st1" d="M704.2,97.9"/>
+	<path class="st0" d="M751.3,97.9h1.7c1.7,0,5,0,8.3,0s6.7,0,8.3,0h1.7"/>
+	<path class="st0" d=""/>
+	<path class="st1" d="M765.9,94.9l6,3l-6,3l2.4-3L765.9,94.9z"/>
+	<path id="edge-flatten" class="st1" d="M771.3,97.9"/>
+	<path class="st0" d="M859.4,97.9h1.7c1.7,0,5,0,8.3,0s6.7,0,8.3,0h1.7"/>
+	<path class="st0" d=""/>
+	<path class="st1" d="M874,94.9l6,3l-6,3l2.4-3L874,94.9z"/>
+	<path id="edge-dense" class="st1" d="M879.4,97.9"/>
+	<path class="st0" d="M967.5,97.9h1.7c1.7,0,5,0,8.3,0s6.7,0,8.3,0h1.7"/>
+	<path class="st0" d=""/>
+	<path class="st1" d="M982.1,94.9l6,3l-6,3l2.4-3L982.1,94.9z"/>
+	<path id="edge-dense_1" class="st1" d="M987.5,97.9"/>
+</g>
+<g id="edge-labels">
+	<text transform="matrix(1 0 0 1 69.4811 117.9)" class="st2 st3">?×128×1</text>
+</g>
+<g id="input-name-input" transform="translate(0,77.5)">
+	<g transform="translate(0,0)">
+		<path class="st4" d="M13.9,8.9h29.6c2.8,0,5,2.2,5,5v13c0,2.8-2.2,5-5,5H13.9c-2.8,0-5-2.2-5-5v-13C8.9,11.1,11.1,8.9,13.9,8.9z"
+			/>
+		<text transform="matrix(1 0 0 1 14.9 24.9)" class="st2 st5">input</text>
+	</g>
+	<path class="st6" d="M13.9,8.9h29.6c2.8,0,5,2.2,5,5v13c0,2.8-2.2,5-5,5H13.9c-2.8,0-5-2.2-5-5v-13C8.9,11.1,11.1,8.9,13.9,8.9z"/>
+</g>
+<g id="node-name-conv1d_input" transform="translate(119.3154296875,60.5)">
+	<g transform="translate(0,0)">
+		<path class="st7" d="M13.9,8.9h65c2.8,0,5,2.2,5,5v18l0,0h-75l0,0v-18C8.9,11.1,11.1,8.9,13.9,8.9z"/>
+		<text transform="matrix(1 0 0 1 14.9 24.9)" class="st8 st2 st5">InputLayer</text>
+	</g>
+	<g transform="translate(0,23)">
+		<path class="st8" d="M8.9,8.9h75l0,0v29c0,2.8-2.2,5-5,5h-65c-2.8,0-5-2.2-5-5V8.9L8.9,8.9z"/>
+		<text transform="matrix(1 0 0 1 14.9 22.9)" class="st2 st9">ragged</text>
+		<text transform="matrix(1 0 0 1 42.9239 22.9)" class="st2 st9"> = false</text>
+		<text transform="matrix(1 0 0 1 14.9 36.9)" class="st2 st9">sparse</text>
+		<text transform="matrix(1 0 0 1 41.9132 36.9)" class="st2 st9"> = false</text>
+		<line class="st6" x1="8.9" y1="8.9" x2="83.9" y2="8.9"/>
+	</g>
+	<path class="st6" d="M13.9,8.9h65c2.8,0,5,2.2,5,5v47c0,2.8-2.2,5-5,5h-65c-2.8,0-5-2.2-5-5v-47C8.9,11.1,11.1,8.9,13.9,8.9z"/>
+</g>
+<g id="node-name-conv1d" transform="translate(214.3154296875,0)">
+	<g transform="translate(0,0)">
+		<path class="st10" d="M13.9,8.9h129.7c2.8,0,5,2.2,5,5v18l0,0H8.9l0,0v-18C8.9,11.1,11.1,8.9,13.9,8.9z"/>
+		<text transform="matrix(1 0 0 1 14.9 24.9)" class="st8 st2 st5">Conv1D</text>
+	</g>
+	<g transform="translate(0,23)">
+		<path class="st8" d="M8.9,8.9h139.7l0,0v132l0,0H8.9l0,0V8.9L8.9,8.9z"/>
+		<text transform="matrix(1 0 0 1 14.9 22.9)" class="st2 st9">activation</text>
+		<text transform="matrix(1 0 0 1 52.9215 22.9)" class="st2 st9"> = relu</text>
+		<text transform="matrix(1 0 0 1 14.9 36.9)" class="st2 st9">batch_input_shape</text>
+		<text transform="matrix(1 0 0 1 90.9649 36.9)" class="st2 st9"> = null, 128, 1</text>
+		<text transform="matrix(1 0 0 1 14.9 50.9)" class="st2 st9">bias_constraint</text>
+		<text transform="matrix(1 0 0 1 75.4347 50.9)" class="st2 st9"> = </text>
+		<text transform="matrix(1 0 0 1 14.9 64.9)" class="st2 st9">dilation_rate</text>
+		<text transform="matrix(1 0 0 1 63.9342 64.9)" class="st2 st9"> = 1</text>
+		<text transform="matrix(1 0 0 1 14.9 78.9)" class="st2 st9">filters</text>
+		<text transform="matrix(1 0 0 1 36.4024 78.9)" class="st2 st9"> = 128</text>
+		<text transform="matrix(1 0 0 1 14.9 92.9)" class="st2 st9">groups</text>
+		<text transform="matrix(1 0 0 1 42.4185 92.9)" class="st2 st9"> = 1</text>
+		<text transform="matrix(1 0 0 1 14.9 106.9)" class="st2 st9">kernel_constraint</text>
+		<text transform="matrix(1 0 0 1 83.4371 106.9)" class="st2 st9"> = </text>
+		<text transform="matrix(1 0 0 1 14.9 120.9)" class="st2 st9">kernel_size</text>
+		<text transform="matrix(1 0 0 1 60.4229 120.9)" class="st2 st9"> = 2</text>
+		<text transform="matrix(1 0 0 1 14.9 134.9)" class="st2 st9">strides</text>
+		<text transform="matrix(1 0 0 1 41.4078 134.9)" class="st2 st9"> = 1</text>
+		<line class="st6" x1="8.9" y1="8.9" x2="148.6" y2="8.9"/>
+	</g>
+	<g transform="translate(0,155)">
+		<path class="st11" d="M8.9,8.9h139.7l0,0v18c0,2.8-2.2,5-5,5H13.9c-2.8,0-5-2.2-5-5V8.9L8.9,8.9z"/>
+		<text transform="matrix(1 0 0 1 14.9 24.9)" class="st8 st2 st5">ReLU</text>
+	</g>
+	<line class="st6" x1="8.9" y1="163.9" x2="148.6" y2="163.9"/>
+	<path class="st6" d="M13.9,8.9h129.7c2.8,0,5,2.2,5,5v168c0,2.8-2.2,5-5,5H13.9c-2.8,0-5-2.2-5-5v-168C8.9,11.1,11.1,8.9,13.9,8.9z
+		"/>
+</g>
+<g id="node-name-conv1d_1" transform="translate(374.0341796875,7)">
+	<g transform="translate(0,0)">
+		<path class="st10" d="M13.9,8.9H92c2.8,0,5,2.2,5,5v18l0,0H8.9l0,0v-18C8.9,11.1,11.1,8.9,13.9,8.9z"/>
+		<text transform="matrix(1 0 0 1 14.9 24.9)" class="st8 st2 st5">Conv1D</text>
+	</g>
+	<g transform="translate(0,23)">
+		<path class="st8" d="M8.9,8.9H97l0,0v118l0,0H8.9l0,0V8.9L8.9,8.9z"/>
+		<text transform="matrix(1 0 0 1 14.9 22.9)" class="st2 st9">activation</text>
+		<text transform="matrix(1 0 0 1 52.9215 22.9)" class="st2 st9"> = relu</text>
+		<text transform="matrix(1 0 0 1 14.9 36.9)" class="st2 st9">bias_constraint</text>
+		<text transform="matrix(1 0 0 1 75.4347 36.9)" class="st2 st9"> = </text>
+		<text transform="matrix(1 0 0 1 14.9 50.9)" class="st2 st9">dilation_rate</text>
+		<text transform="matrix(1 0 0 1 63.9342 50.9)" class="st2 st9"> = 1</text>
+		<text transform="matrix(1 0 0 1 14.9 64.9)" class="st2 st9">filters</text>
+		<text transform="matrix(1 0 0 1 36.4024 64.9)" class="st2 st9"> = 128</text>
+		<text transform="matrix(1 0 0 1 14.9 78.9)" class="st2 st9">groups</text>
+		<text transform="matrix(1 0 0 1 42.4185 78.9)" class="st2 st9"> = 1</text>
+		<text transform="matrix(1 0 0 1 14.9 92.9)" class="st2 st9">kernel_constraint</text>
+		<text transform="matrix(1 0 0 1 83.4371 92.9)" class="st2 st9"> = </text>
+		<text transform="matrix(1 0 0 1 14.9 106.9)" class="st2 st9">kernel_size</text>
+		<text transform="matrix(1 0 0 1 60.4229 106.9)" class="st2 st9"> = 2</text>
+		<text transform="matrix(1 0 0 1 14.9 120.9)" class="st2 st9">strides</text>
+		<text transform="matrix(1 0 0 1 41.4078 120.9)" class="st2 st9"> = 1</text>
+		<line class="st6" x1="8.9" y1="8.9" x2="97" y2="8.9"/>
+	</g>
+	<g transform="translate(0,141)">
+		<path class="st11" d="M8.9,8.9H97l0,0v18c0,2.8-2.2,5-5,5H13.9c-2.8,0-5-2.2-5-5V8.9L8.9,8.9z"/>
+		<text transform="matrix(1 0 0 1 14.9 24.9)" class="st8 st2 st5">ReLU</text>
+	</g>
+	<line class="st6" x1="8.9" y1="149.9" x2="97" y2="149.9"/>
+	<path class="st6" d="M13.9,8.9H92c2.8,0,5,2.2,5,5v154c0,2.8-2.2,5-5,5H13.9c-2.8,0-5-2.2-5-5v-154C8.9,11.1,11.1,8.9,13.9,8.9z"/>
+</g>
+<g id="node-name-conv1d_2" transform="translate(482.1123046875,7)">
+	<g transform="translate(0,0)">
+		<path class="st10" d="M13.9,8.9H92c2.8,0,5,2.2,5,5v18l0,0H8.9l0,0v-18C8.9,11.1,11.1,8.9,13.9,8.9z"/>
+		<text transform="matrix(1 0 0 1 14.9 24.9)" class="st8 st2 st5">Conv1D</text>
+	</g>
+	<g transform="translate(0,23)">
+		<path class="st8" d="M8.9,8.9H97l0,0v118l0,0H8.9l0,0V8.9L8.9,8.9z"/>
+		<text transform="matrix(1 0 0 1 14.9 22.9)" class="st2 st9">activation</text>
+		<text transform="matrix(1 0 0 1 52.9215 22.9)" class="st2 st9"> = relu</text>
+		<text transform="matrix(1 0 0 1 14.9 36.9)" class="st2 st9">bias_constraint</text>
+		<text transform="matrix(1 0 0 1 75.4347 36.9)" class="st2 st9"> = </text>
+		<text transform="matrix(1 0 0 1 14.9 50.9)" class="st2 st9">dilation_rate</text>
+		<text transform="matrix(1 0 0 1 63.9342 50.9)" class="st2 st9"> = 1</text>
+		<text transform="matrix(1 0 0 1 14.9 64.9)" class="st2 st9">filters</text>
+		<text transform="matrix(1 0 0 1 36.4025 64.9)" class="st2 st9"> = 128</text>
+		<text transform="matrix(1 0 0 1 14.9 78.9)" class="st2 st9">groups</text>
+		<text transform="matrix(1 0 0 1 42.4186 78.9)" class="st2 st9"> = 1</text>
+		<text transform="matrix(1 0 0 1 14.9 92.9)" class="st2 st9">kernel_constraint</text>
+		<text transform="matrix(1 0 0 1 83.4371 92.9)" class="st2 st9"> = </text>
+		<text transform="matrix(1 0 0 1 14.9 106.9)" class="st2 st9">kernel_size</text>
+		<text transform="matrix(1 0 0 1 60.423 106.9)" class="st2 st9"> = 2</text>
+		<text transform="matrix(1 0 0 1 14.9 120.9)" class="st2 st9">strides</text>
+		<text transform="matrix(1 0 0 1 41.4078 120.9)" class="st2 st9"> = 1</text>
+		<line class="st6" x1="8.9" y1="8.9" x2="97" y2="8.9"/>
+	</g>
+	<g transform="translate(0,141)">
+		<path class="st11" d="M8.9,8.9H97l0,0v18c0,2.8-2.2,5-5,5H13.9c-2.8,0-5-2.2-5-5V8.9L8.9,8.9z"/>
+		<text transform="matrix(1 0 0 1 14.9 24.9)" class="st8 st2 st5">ReLU</text>
+	</g>
+	<line class="st6" x1="8.9" y1="149.9" x2="97" y2="149.9"/>
+	<path class="st6" d="M13.9,8.9H92c2.8,0,5,2.2,5,5v154c0,2.8-2.2,5-5,5H13.9c-2.8,0-5-2.2-5-5v-154C8.9,11.1,11.1,8.9,13.9,8.9z"/>
+</g>
+<g id="node-name-max_pooling1d" transform="translate(590.1904296875,60.5)">
+	<g transform="translate(0,0)">
+		<path class="st12" d="M13.9,8.9H89c2.8,0,5,2.2,5,5v18l0,0H8.9l0,0v-18C8.9,11.1,11.1,8.9,13.9,8.9z"/>
+		<text transform="matrix(1 0 0 1 14.9 24.9)" class="st8 st2 st5">MaxPooling1D</text>
+	</g>
+	<g transform="translate(0,23)">
+		<path class="st8" d="M8.9,8.9H94l0,0v29c0,2.8-2.2,5-5,5H13.9c-2.8,0-5-2.2-5-5V8.9L8.9,8.9z"/>
+		<text transform="matrix(1 0 0 1 14.9 22.9)" class="st2 st9">pool_size</text>
+		<text transform="matrix(1 0 0 1 52.9259 22.9)" class="st2 st9"> = 2</text>
+		<text transform="matrix(1 0 0 1 14.9 36.9)" class="st2 st9">strides</text>
+		<text transform="matrix(1 0 0 1 41.4078 36.9)" class="st2 st9"> = 2</text>
+		<line class="st6" x1="8.9" y1="8.9" x2="94" y2="8.9"/>
+	</g>
+	<path class="st6" d="M13.9,8.9H89c2.8,0,5,2.2,5,5v47c0,2.8-2.2,5-5,5H13.9c-2.8,0-5-2.2-5-5v-47C8.9,11.1,11.1,8.9,13.9,8.9z"/>
+</g>
+<g id="node-name-flatten" transform="translate(695.31689453125,77.5)">
+	<g transform="translate(0,0)">
+		<path class="st13" d="M13.9,8.9H51c2.8,0,5,2.2,5,5v13c0,2.8-2.2,5-5,5H13.9c-2.8,0-5-2.2-5-5v-13C8.9,11.1,11.1,8.9,13.9,8.9z"/>
+		<text transform="matrix(1 0 0 1 14.9 24.9)" class="st8 st2 st5">Flatten</text>
+	</g>
+	<path class="st6" d="M13.9,8.9H51c2.8,0,5,2.2,5,5v13c0,2.8-2.2,5-5,5H13.9c-2.8,0-5-2.2-5-5v-13C8.9,11.1,11.1,8.9,13.9,8.9z"/>
+</g>
+<g id="node-name-dense" transform="translate(762.39501953125,35)">
+	<g transform="translate(0,0)">
+		<path class="st10" d="M13.9,8.9H92c2.8,0,5,2.2,5,5v18l0,0H8.9l0,0v-18C8.9,11.1,11.1,8.9,13.9,8.9z"/>
+		<text transform="matrix(1 0 0 1 14.9 24.9)" class="st8 st2 st5">Dense</text>
+	</g>
+	<g transform="translate(0,23)">
+		<path class="st8" d="M8.9,8.9H97l0,0v62l0,0H8.9l0,0V8.9L8.9,8.9z"/>
+		<text transform="matrix(1 0 0 1 14.9 22.9)" class="st2 st9">activation</text>
+		<text transform="matrix(1 0 0 1 52.9215 22.9)" class="st2 st9"> = relu</text>
+		<text transform="matrix(1 0 0 1 14.9 36.9)" class="st2 st9">bias_constraint</text>
+		<text transform="matrix(1 0 0 1 75.4347 36.9)" class="st2 st9"> = </text>
+		<text transform="matrix(1 0 0 1 14.9 50.9)" class="st2 st9">kernel_constraint</text>
+		<text transform="matrix(1 0 0 1 83.4371 50.9)" class="st2 st9"> = </text>
+		<text transform="matrix(1 0 0 1 14.9 64.9)" class="st2 st9">units</text>
+		<text transform="matrix(1 0 0 1 33.9108 64.9)" class="st2 st9"> = 100</text>
+		<line class="st6" x1="8.9" y1="8.9" x2="97" y2="8.9"/>
+	</g>
+	<g transform="translate(0,85)">
+		<path class="st11" d="M8.9,8.9H97l0,0v18c0,2.8-2.2,5-5,5H13.9c-2.8,0-5-2.2-5-5V8.9L8.9,8.9z"/>
+		<text transform="matrix(1 0 0 1 14.9 24.9)" class="st8 st2 st5">ReLU</text>
+	</g>
+	<line class="st6" x1="8.9" y1="93.9" x2="97" y2="93.9"/>
+	<path class="st6" d="M13.9,8.9H92c2.8,0,5,2.2,5,5v98c0,2.8-2.2,5-5,5H13.9c-2.8,0-5-2.2-5-5v-98C8.9,11.1,11.1,8.9,13.9,8.9z"/>
+</g>
+<g id="node-name-dense_1" transform="translate(870.47314453125,35)">
+	<g transform="translate(0,0)">
+		<path class="st10" d="M13.9,8.9H92c2.8,0,5,2.2,5,5v18l0,0H8.9l0,0v-18C8.9,11.1,11.1,8.9,13.9,8.9z"/>
+		<text transform="matrix(1 0 0 1 14.9 24.9)" class="st8 st2 st5">Dense</text>
+	</g>
+	<g transform="translate(0,23)">
+		<path class="st8" d="M8.9,8.9H97l0,0v62l0,0H8.9l0,0V8.9L8.9,8.9z"/>
+		<text transform="matrix(1 0 0 1 14.9 22.9)" class="st2 st9">activation</text>
+		<text transform="matrix(1 0 0 1 52.9215 22.9)" class="st2 st9"> = relu</text>
+		<text transform="matrix(1 0 0 1 14.9 36.9)" class="st2 st9">bias_constraint</text>
+		<text transform="matrix(1 0 0 1 75.4347 36.9)" class="st2 st9"> = </text>
+		<text transform="matrix(1 0 0 1 14.9 50.9)" class="st2 st9">kernel_constraint</text>
+		<text transform="matrix(1 0 0 1 83.4371 50.9)" class="st2 st9"> = </text>
+		<text transform="matrix(1 0 0 1 14.9 64.9)" class="st2 st9">units</text>
+		<text transform="matrix(1 0 0 1 33.9108 64.9)" class="st2 st9"> = 1</text>
+		<line class="st6" x1="8.9" y1="8.9" x2="97" y2="8.9"/>
+	</g>
+	<g transform="translate(0,85)">
+		<path class="st11" d="M8.9,8.9H97l0,0v18c0,2.8-2.2,5-5,5H13.9c-2.8,0-5-2.2-5-5V8.9L8.9,8.9z"/>
+		<text transform="matrix(1 0 0 1 14.9 24.9)" class="st8 st2 st5">ReLU</text>
+	</g>
+	<line class="st6" x1="8.9" y1="93.9" x2="97" y2="93.9"/>
+	<path class="st6" d="M13.9,8.9H92c2.8,0,5,2.2,5,5v98c0,2.8-2.2,5-5,5H13.9c-2.8,0-5-2.2-5-5v-98C8.9,11.1,11.1,8.9,13.9,8.9z"/>
+</g>
+<g>
+	<path class="st4" d="M993.1,86.4h43.4c2.8,0,5,2.2,5,5v13c0,2.8-2.2,5-5,5h-43.4c-2.8,0-5-2.2-5-5v-13
+		C988.1,88.6,990.3,86.4,993.1,86.4z"/>
+	<path class="st6" d="M993.1,86.4h43.4c2.8,0,5,2.2,5,5v13c0,2.8-2.2,5-5,5h-43.4c-2.8,0-5-2.2-5-5v-13
+		C988.1,88.6,990.3,86.4,993.1,86.4z"/>
+</g>
+<text transform="matrix(1 0 0 1 999.4477 100.8335)" class="st2 st5">output</text>
+</svg>
