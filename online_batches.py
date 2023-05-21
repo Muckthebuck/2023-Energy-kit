@@ -16,14 +16,14 @@ class online_batches:
     def get_y(self, t, data_name):
         return self.data[data_name]["Y_test_batches"][t]
     def get_timestamps(self):
-        return self.data['load']['test_data_split'].index
+        return self.data['temp']['test_data_split'].index
     def get_scalar_y(self, data_name):
         return self.data[data_name]['scaler_y']
     
     def get_online_training_data(self,t):
         temp_X, temp_y = self.get_X(t,"temp"), self.get_y(t,"temp")
         solar_X, solar_y = self.get_X(t,"solar"), self.get_y(t,"solar")
-        load_X, load_y = self.get_X(t,"load"), self.get_y(t,"load")
+        load_X, load_y = self.data["load"]["X_test_batch"], self.data["load"]["Y_test_batches"]
 
         temp_scalar = self.get_scalar_y("temp")
         solar_scalar = self.get_scalar_y("solar")

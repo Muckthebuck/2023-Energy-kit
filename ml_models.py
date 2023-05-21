@@ -9,7 +9,7 @@ class ml_model:
     def __init__(self, data_batches) -> None:
         self.solar_model = tf.keras.models.load_model("saved_model/temp_Austin_solar_lstm3/")
         self.temp_model = tf.keras.models.load_model("saved_model/temp_Austin_temp_lstm3/")
-        self.load_model = None
+        self.load_model = tf.keras.models.load_model("saved_model/load_cnn.h5")
         # split the data into inputs and targets
         freq = 30          # 1 point every 15 min
         step = int(60/freq)    # number of points in an hour
@@ -28,14 +28,16 @@ class ml_model:
         self.temp_avg = pd.DataFrame({'predicted':  np.full(self.labels.shape[0], np.nan)},index=self.labels)
         self.solar_avg = pd.DataFrame({'predicted':  np.full(self.labels.shape[0], np.nan)},index=self.labels)
         self.load_avg = pd.DataFrame({'predicted':  np.full(self.labels.shape[0], np.nan)},index=self.labels)
-       
+
+  
+            
+
     def predict(self, t, data_batches: online_batches):
         # Call predict method on the loaded model
         temp_X, temp_y, temp_scalar, solar_X, solar_y, solar_scalar, load_X, load_y, load_scalar = data_batches.get_online_training_data(t)
         temp_hat = self._predict(self.temp_model, temp_X, temp_y,self.austin_N, temp_scalar,self.temp_avg, t, 'temp')
         solar_hat = self._predict(self.solar_model, solar_X, solar_y,self.austin_N, solar_scalar, self.solar_avg, t, 'solar')
-        # load_hat = self._predict(self.load_model, load_X, load_y,self.load_N, load_scalar, self.load_avg, t, 'load')
-        load_hat = 0
+        load_hat = self._predict_load(self.load_model, load_X, load_y,self.load_N, load_scalar, self.load_avg, t)
 
         # need to divide solar by 1000 to conver to K(units)
         return temp_hat,solar_hat/1000,load_hat
@@ -61,3 +63,28 @@ class ml_model:
         dff_avg = avg_df.iloc[i:i+self.pred_T]
         predicted = dff_avg.mean(axis=1)
         return predicted.values
+    
+    def _predict_load(self, model, X_test, y_test, N, scalar, avg_df, i):
+        x = X_test[i:i+self.pred_T]
+        preds = model.predict(x)
+        predicted = self._clean_load_pred(preds)
+    
+        y = y_test[i:i+self.pred_T]  # a new label is available
+        model.train_on_batch(x, y)  # runs a single gradient update 
+        
+        index = self.labels[i:i+self.pred_T]
+       
+        dff1 = pd.DataFrame({'predicted': predicted.squeeze()}, index=index)
+        avg_df = avg_df.join(dff1, how='left', rsuffix=f'_{i}')
+        self.load_avg = avg_df 
+
+        dff_avg = avg_df.iloc[i:i+self.pred_T]
+        predicted = dff_avg.mean(axis=1)
+        return predicted.values
+
+    
+    def _clean_load_pred(self,arr):
+        arr = np.where((arr >= 0.4) & (arr <= 0.8), 0.1, arr)
+        arr = np.clip(arr, 0.091, np.inf)
+        return arr
+
