@@ -62,7 +62,7 @@ class ml_model:
             self.temp_avg = avg_df
         dff_avg = avg_df.iloc[i:i+self.pred_T]
         predicted = dff_avg.mean(axis=1)
-        return predicted.values
+        return predicted
     
     def _predict_load(self, model, X_test, y_test, N, scalar, avg_df, i):
         x = X_test[i:i+self.pred_T]
@@ -80,7 +80,7 @@ class ml_model:
 
         dff_avg = avg_df.iloc[i:i+self.pred_T]
         predicted = dff_avg.mean(axis=1)
-        return predicted.values
+        return predicted
 
     
     def _clean_load_pred(self,arr):
