@@ -16,7 +16,7 @@ class online_batches:
     def get_y(self, t, data_name):
         return self.data[data_name]["Y_test_batches"][t]
     def get_timestamps(self):
-        return self.data['temp']['test_data_split'].index
+        return self.data['solar']['test_data_split'].index
     def get_scalar_y(self, data_name):
         return self.data[data_name]['scaler_y']
     
