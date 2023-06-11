@@ -34,15 +34,10 @@ Run `conda env create -f SOML.yaml` at root folder.
  - optimization(bidirectional_pricing).ipynb
  - optimization(unidirectional_pricing).ipynb
 #### ML training and exploration
-- \[Austin\]solar_temp_predictions.ipynb                : Data cleaning and DNN models experiments for solar insolation and temp predictions
-- \[BOM\]solar_predictions.ipynb                        : Data cleaning and DNN models experiments for BOM-72 solar insolation predictions.
-- \[BOM\]Outdoor_temperature_predictions.ipynb          : Data cleaning and classical ML models experiments for BOM dataset.
-- complete_temp.ipynb                                   : Data cleaning and DNN models for BOM-72 temperature predictions.
-- load_dnn.ipynb                                        : DNN models experiments for load predictions
-- load_prediction.ipynb                                 : Classical ML models for load predictions
-- mol_model_testin.ipynb                                : To test teh ml_model.py and online_batches.py classes
+- \[Austin\]solar_temp_predictions.ipynb
+- \[BOM\]solar_predictions.ipynb
+- \[BOM\]Outdoor_temperature_predictions.ipynb
 - load_data.ipynb
-
 
 
 
