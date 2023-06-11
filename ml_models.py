@@ -53,7 +53,7 @@ class ml_model:
         predicted = scalar.inverse_transform(y_hat)
         
         # change the current value to actual rather than predicted
-        predicted[0] = scalar.inverse_transform(y_test[0])
+        # predicted[0] = scalar.inverse_transform(y_test[0])
        
         index = self.labels[i:i+y_test.shape[0]]
        
