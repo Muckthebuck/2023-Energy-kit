@@ -29,10 +29,12 @@ Run `conda env create -f SOML.yaml` at root folder.
 ### jupyter notebooks
 
 ####  main jupyter notebook to run the project
-
+ - optimization.ipynb                                   : Main notebook with optimization, MPC simulation, and printing of the graphs
 #### Optimisation 
  - optimization(bidirectional_pricing).ipynb
  - optimization(unidirectional_pricing).ipynb
+ - optimization_with_penalty.ipynb                      : Copy of optimization.ipynb used to compare the effect of the penalty functions.
+ - optimization_null.ipynb                              : Copy of optimization but adjusted for Case 0 (no prediction).
 #### ML training and exploration
 - \[Austin\]solar_temp_predictions.ipynb                : Data cleaning and DNN models experiments for solar insolation and temp predictions
 - \[BOM\]solar_predictions.ipynb                        : Data cleaning and DNN models experiments for BOM-72 solar insolation predictions.
